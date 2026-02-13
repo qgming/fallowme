@@ -1,0 +1,17 @@
+{
+  "name": "qgming",
+  "title": "独立开发者",
+  "bio": "专注于创造有价值的产品。",
+  "avatar": "/avatar.jpg",
+  "social": {
+    "github": "https://github.com/qgming",
+    "twitter": "https://x.com/qgmingx",
+    "email": "qgming@qq.com",
+    "wechat": {
+      "name": "极点维度",
+      "qrCode": "/qrcode/wechat.jpg"
+    },
+    "weibo": "https://weibo.com/u/6521776570",
+    "bilibili": "https://space.bilibili.com/312954339"
+  }
+}

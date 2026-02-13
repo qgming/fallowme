@@ -1,0 +1,25 @@
+{
+  "permissions": {
+    "allow": [
+      "mcp__SupabaseMcpServers__list_edge_functions",
+      "mcp__SupabaseMcpServers__get_publishable_keys",
+      "mcp__fallowmemcpServers__get_project_url",
+      "mcp__fallowmemcpServers__list_tables",
+      "mcp__fallowmemcpServers__list_extensions",
+      "mcp__fallowmemcpServers__execute_sql",
+      "mcp__fallowmemcpServers__list_migrations",
+      "mcp__fallowmemcpServers__get_publishable_keys",
+      "Bash(npm install:*)",
+      "Bash(npx shadcn@latest add:*)",
+      "mcp__context7__resolve-library-id",
+      "mcp__context7__query-docs",
+      "Bash(npm run build:*)",
+      "Bash(find:*)",
+      "Bash(npm run type-check:*)",
+      "Bash(tsc:*)",
+      "Bash(npx tsc:*)",
+      "mcp__github__get_file_contents",
+      "Bash(sort:*)"
+    ]
+  }
+}
