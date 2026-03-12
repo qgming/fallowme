@@ -22,7 +22,13 @@
         "/projects/getme/getme6.jpg"
       ],
       "links": {
-        "download": "https://example.com/download/task-manager"
+        "download": [
+          {
+            "url": "https://example.com/download/getme-direct",
+            "label": "立即下载",
+            "variant": "primary"
+          }
+        ]
       },
       "features": [
         {
@@ -59,15 +65,15 @@
     {
       "id": "readflow",
       "title": "流畅阅读",
-      "subtitle": "一款分句翻译的英语阅读学习应用",
-      "description": "一款分句翻译的英语阅读学习应用，将 RSS 订阅阅读、智能翻译、词典查询和语音朗读功能融为一体。聚合全球优质英文新闻源(TIME、BBC、Vice 等)，支持双翻译引擎(Google/Bing)，集成离线词典，提供TTS 语音朗读，为非英语母语者打造沉浸式的语言学习体验。",
+      "subtitle": "智能图书阅读与AI解析助手",
+      "description": "一款集成了 EPUB 图书阅读、AI 文章解析和智能翻译的学习应用。支持 EPUB3 格式图书阅读与真人语音朗读，聚合全球优质英文新闻源(TIME、BBC、Vice 等)，支持双翻译引擎(Google/Bing)，集成离线词典，提供 TTS 语音朗读。新增 AI 文章解析功能，为非英语母语者打造沉浸式的语言学习体验。",
       "icon": "/projects/readflow/icon.png",
-      "version": "v1.0.0",
+      "version": "v1.0.1",
       "tags": [
-        "内置书源",
-        "生词本",
-        "分句翻译",
-        "语音朗读"
+        "EPUB阅读",
+        "AI解析",
+        "真人朗读",
+        "智能翻译"
       ],
       "screenshots": [
         "/projects/readflow/readflow1.jpg",
@@ -79,19 +85,43 @@
         "/projects/readflow/readflow7.jpg"
       ],
       "links": {
-        "download": "https://example.com/download/weather-app"
+        "download": [
+          {
+            "url": "https://pan.quark.cn/s/262f2f7af4f8",
+            "label": "夸克网盘",
+            "variant": "primary"
+          },
+          {
+            "url": "https://pan.baidu.com/s/1qaSGRik4varxB-Ygw7p13g?pwd=h5q6",
+            "label": "百度网盘",
+            "variant": "primary"
+          },
+          {
+            "url": "https://wwbhx.lanzout.com/icexD3kglsfe",
+            "label": "蓝奏云",
+            "variant": "primary"
+          }
+        ]
       },
       "features": [
         {
-          "title": "内置书源",
-          "description": "聚合全球优质英文新闻源,包括 TIME、BBC、Vice、Business Insider、中国日报、南方周末等,提供简洁易读的文章排版和书签系统"
+          "title": "EPUB 图书阅读",
+          "description": "支持 EPUB 格式图书阅读,自动解析章节结构,提供流畅的翻页体验和阅读进度保存"
+        },
+        {
+          "title": "EPUB3 真人朗读",
+          "description": "支持 EPUB3 格式的真人语音朗读,多种语音选择,可调节语速和音调,提供沉浸式听书体验"
+        },
+        {
+          "title": "AI 文章解析",
+          "description": "智能提取文章关键词、生成内容摘要、创建思维导图,支持多维度内容分析和知识图谱生成"
         },
         {
           "title": "智能翻译",
           "description": "双翻译引擎(Google/Bing),支持段落级翻译和 24+ 种语言,翻译内容本地保存支持离线访问,可随时显隐切换"
         },
         {
-          "title": "词典与单词查询",
+          "title": "单词查询",
           "description": "集成 ECDICT 离线词典,点击任意单词查看音标、释义、词形变化、词频数据、考试信息(四六级/托福/雅思/GRE)和柯林斯星级"
         },
         {
@@ -99,8 +129,12 @@
           "description": "多种英文和中文神经网络语音(Jenny、Aria、晓晓等),可调节语速,支持自动播放,发音自然流畅"
         },
         {
-          "title": "优质阅读体验",
-          "description": "自动单词分割和高亮,简洁的段落布局,阅读统计显示,深色/浅色主题自动切换"
+          "title": "单词标注",
+          "description": "内置四六级、托福、雅思、GRE 高频词表,自动在文章和图书中标注单词"
+        },
+        {
+          "title": "分句翻译",
+          "description": "文章支持分句翻译,点击段落内任意位置自动识别当前句子并翻译,提供更精准的翻译结果和学习体验"
         }
       ],
       "createdAt": "2026-02-13"
@@ -168,7 +202,7 @@
       "subtitle": "企业级多应用账户管理后台",
       "description": "基于 Supabase 的集中式用户与会员管理系统,为多个应用程序提供统一的账户管理中心。通过单一界面管理所有关联应用的用户账户、会员订阅、支付记录和应用配置。支持权限分离、完整审计日志、批量操作。基于 React 19 + TypeScript + Vite + Ant Design 构建,使用 TanStack Query 进行状态管理,集成 Supabase 认证和数据库服务。",
       "icon": "/projects/accounthub/icon.png",
-      "version": "v1.0.0",
+      "version": "v26.3.1",
       "tags": [
         "Supabase",
         "后台管理",
@@ -222,7 +256,7 @@
       "subtitle": "企业级多应用账户管理 SDK",
       "description": "一个功能完整的 TypeScript SDK，配合 AccountHub 管理后台使用，为应用提供完整的用户、会员、支付和配置管理解决方案。支持用户认证系统(注册/登录/OTP验证)、会员管理(状态管理/试用期/自动续费)、支付集成(多种支付方式)、版本更新(自动检查/强制更新)、兑换码系统和应用配置管理。框架无关，支持 Vue、React、React Native 等任何 JavaScript 环境，完整的 TypeScript 类型定义，模块化设计按需使用。",
       "icon": "/projects/accounthub/icon.png",
-      "version": "v1.0.1",
+      "version": "v1.0.3",
       "tags": [
         "SDK",
         "TypeScript",

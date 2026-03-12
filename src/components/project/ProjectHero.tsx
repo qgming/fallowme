@@ -49,12 +49,29 @@ export default function ProjectHero({ project }: ProjectHeroProps) {
 
         {/* CTA 按钮组 */}
         <div className="flex flex-wrap justify-center gap-4 animate-fade-in-up" style={{ animationDelay: '0.2s' }}>
+          {/* 下载按钮 - 支持单个或多个下载链接 */}
           {project.links.download && (
-            <a href={project.links.download} target="_blank" rel="noopener noreferrer">
-              <Button variant="primary" size="lg" icon={<Download className="w-5 h-5" />}>
-                立即下载
-              </Button>
-            </a>
+            typeof project.links.download === 'string' ? (
+              // 兼容旧格式：单个字符串
+              <a href={project.links.download} target="_blank" rel="noopener noreferrer">
+                <Button variant="primary" size="lg" icon={<Download className="w-5 h-5" />}>
+                  立即下载
+                </Button>
+              </a>
+            ) : (
+              // 新格式：多个下载链接数组
+              project.links.download.map((link, index) => (
+                <a key={index} href={link.url} target="_blank" rel="noopener noreferrer">
+                  <Button
+                    variant={link.variant || 'primary'}
+                    size="lg"
+                    icon={<Download className="w-5 h-5" />}
+                  >
+                    {link.label}
+                  </Button>
+                </a>
+              ))
+            )
           )}
           {project.links.demo && (
             <a href={project.links.demo} target="_blank" rel="noopener noreferrer">

@@ -28,7 +28,33 @@ export default function ProjectDetailPage() {
       <section className="py-12">
         <div className="mx-auto max-w-6xl px-6">
           <GlassCard className="p-8">
-            <p className="text-lg text-muted leading-relaxed">{project.description}</p>
+            <div className="flex items-start gap-6">
+              <div className="flex-1">
+                <h2 className="text-2xl font-bold mb-4">关于 {project.title}</h2>
+                <p className="text-lg text-muted leading-relaxed">{project.description}</p>
+                {project.tags && project.tags.length > 0 && (
+                  <div className="flex flex-wrap gap-2 mt-6">
+                    {project.tags.map((tag, index) => (
+                      <span
+                        key={index}
+                        className="px-3 py-1 text-sm bg-accent/10 text-accent rounded-full border border-accent/20"
+                      >
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
+                )}
+              </div>
+              {project.icon && (
+                <div className="hidden md:block w-24 h-24 rounded-2xl overflow-hidden bg-accent/5 flex items-center justify-center border border-border/50 flex-shrink-0">
+                  <img
+                    src={project.icon}
+                    alt={project.title}
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+              )}
+            </div>
           </GlassCard>
         </div>
       </section>

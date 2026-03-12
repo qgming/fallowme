@@ -5,6 +5,13 @@ export interface Feature {
   icon?: string;                 // 功能图标(可选)
 }
 
+// 下载链接接口
+export interface DownloadLink {
+  url: string;                   // 下载地址
+  label: string;                 // 显示名称,如"立即下载"、"夸克网盘"、"百度网盘"
+  variant?: 'primary' | 'secondary' | 'glass'; // 按钮样式(可选,默认primary)
+}
+
 // 项目数据类型定义
 export interface Project {
   id: string;                    // 唯一标识符
@@ -16,7 +23,7 @@ export interface Project {
   tags?: string[];               // 标签列表
   screenshots: string[];         // 截图列表
   links: {
-    download?: string;           // 下载地址
+    download?: string | DownloadLink[];  // 下载地址(支持单个字符串或多个下载链接)
     github?: string;             // GitHub 仓库
     demo?: string;               // 在线演示
     website?: string;            // 官网
