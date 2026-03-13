@@ -1,0 +1,77 @@
+{
+  "id": "getme",
+  "title": "Getme",
+  "subtitle": "一款融合 AI 深度洞察与记忆系统的智能笔记应用",
+  "description": "一款融合 AI 深度洞察与记忆系统的智能笔记应用，不仅是记录工具，更是你的思维伙伴和记忆助手。运用 25+ 种心理学和认知科学框架深度分析笔记，支持工具调用的 AI 对话助手，自动生成每日总结和长期记忆，智能提取人物、地点、时间、主题等标签。所有数据本地存储，隐私安全可控。",
+  "icon": "/projects/getme/icon.png",
+  "version": "v1.0.0",
+  "tags": [
+    "AI助手",
+    "笔记",
+    "记忆系统",
+    "本地存储"
+  ],
+  "screenshots": [
+    "/projects/getme/getme1.jpg",
+    "/projects/getme/getme2.jpg",
+    "/projects/getme/getme3.jpg",
+    "/projects/getme/getme4.jpg",
+    "/projects/getme/getme5.jpg",
+    "/projects/getme/getme6.jpg"
+  ],
+  "links": {
+    "download": [
+      {
+        "url": "https://example.com/download/getme-direct",
+        "label": "立即下载",
+        "variant": "primary"
+      }
+    ]
+  },
+  "features": [
+    {
+      "title": "AI 智能助手",
+      "description": "支持工具调用的对话助手,可查询笔记、检索记忆、获取标签,提供个性化回答"
+    },
+    {
+      "title": "智能记忆系统",
+      "description": "自动生成每日记忆总结、提取长期记忆、每周整理核心记忆,帮助沉淀重要信息"
+    },
+    {
+      "title": "AI 智能洞察",
+      "description": "提供 25+ 种专业分析框架,从心理、认知、价值、成长等多维度理解你的思考"
+    },
+    {
+      "title": "AI 智能标签",
+      "description": "自动提取人物、作品、地点、时间、主题五大类标签,支持固定、重命名和删除"
+    },
+    {
+      "title": "AI 语音转文字",
+      "description": "支持多种音频格式实时转写,集成 SenseVoiceSmall 模型,识别准确度高"
+    },
+    {
+      "title": "本地优先存储",
+      "description": "所有数据存储在本地 SQLite 数据库,支持分类导出和完整备份,隐私安全可控"
+    },
+    {
+      "title": "优雅的用户体验",
+      "description": "现代化 UI 设计,支持深色模式,流畅动画,完美适配刘海屏和手势导航"
+    }
+  ],
+  "changelog": [
+    {
+      "version": "v1.0.0",
+      "date": "2026-02-13",
+      "changes": [
+        "首次发布",
+        "集成 AI 智能助手功能",
+        "实现智能记忆系统",
+        "支持 25+ 种 AI 智能洞察框架",
+        "添加 AI 智能标签自动提取",
+        "集成 AI 语音转文字功能",
+        "实现本地优先存储方案"
+      ]
+    }
+  ],
+  "createdAt": "2026-02-13"
+}

@@ -1,0 +1,80 @@
+{
+  "id": "accounthubsdk",
+  "title": "AccountHub SDK",
+  "subtitle": "企业级多应用账户管理 SDK",
+  "description": "一个功能完整的 TypeScript SDK，配合 AccountHub 管理后台使用，为应用提供完整的用户、会员、支付和配置管理解决方案。支持用户认证系统(注册/登录/OTP验证)、会员管理(状态管理/试用期/自动续费)、支付集成(多种支付方式)、版本更新(自动检查/强制更新)、兑换码系统和应用配置管理。框架无关，支持 Vue、React、React Native 等任何 JavaScript 环境，完整的 TypeScript 类型定义，模块化设计按需使用。",
+  "icon": "/projects/accounthub/icon.png",
+  "version": "v1.0.4",
+  "tags": [
+    "SDK",
+    "TypeScript",
+    "NPM",
+    "框架无关"
+  ],
+  "screenshots": [
+    "/projects/accounthub/accounthub1.jpg",
+    "/projects/accounthub/accounthub2.jpg",
+    "/projects/accounthub/accounthub3.jpg",
+    "/projects/accounthub/accounthub4.jpg"
+  ],
+  "links": {
+    "github": "https://github.com/qgming/accounthubsdk",
+    "website": "https://www.npmjs.com/package/@accounthub/sdk"
+  },
+  "features": [
+    {
+      "title": "认证系统",
+      "description": "用户注册与登录(邮箱/密码)、OTP 邮箱验证、密码重置与更新、用户资料管理、认证状态监听、用户封禁检查"
+    },
+    {
+      "title": "会员管理",
+      "description": "会员创建与状态管理、试用期配置、会员续费与取消、会员过期检查、灵活的计费周期(月付/年付)、多种会员状态(激活/试用/过期/暂停/取消)"
+    },
+    {
+      "title": "支付集成",
+      "description": "支付记录创建与查询、会员套餐管理、支付历史追踪、多种支付方式支持(Stripe/支付宝/微信/易支付)、支付状态管理"
+    },
+    {
+      "title": "版本更新",
+      "description": "自动检查应用更新、版本号智能比较、强制更新支持、平台自动检测(Windows/macOS/Linux/iOS/Android)、更新缓存机制"
+    },
+    {
+      "title": "兑换码系统",
+      "description": "兑换码验证(不实际兑换)、兑换码兑换、获取用户兑换记录、支持单次/多次使用、自动检查过期和使用次数"
+    },
+    {
+      "title": "应用配置",
+      "description": "动态配置获取、配置缓存机制、按类型获取配置列表、批量获取配置、支持多种配置类型(公告/API配置/功能开关等)"
+    },
+    {
+      "title": "技术特点",
+      "description": "框架无关(支持 Vue/React/React Native)、完整的 TypeScript 类型定义、模块化设计按需使用、事件驱动机制、简单配置、单例模式"
+    }
+  ],
+  "changelog": [
+    {
+      "version": "v1.0.4",
+      "date": "2026-03-13",
+      "changes": [
+        "优化认证状态监听机制",
+        "修复会员过期检查的边界问题",
+        "改进版本更新缓存策略"
+      ]
+    },
+    {
+      "version": "v1.0.0",
+      "date": "2026-02-13",
+      "changes": [
+        "首次发布",
+        "实现完整的认证系统",
+        "支持会员管理功能",
+        "集成多种支付方式",
+        "添加版本更新检查",
+        "实现兑换码系统",
+        "支持动态应用配置",
+        "提供完整的 TypeScript 类型定义"
+      ]
+    }
+  ],
+  "createdAt": "2026-02-13"
+}

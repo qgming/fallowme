@@ -5,6 +5,13 @@ export interface Feature {
   icon?: string;                 // 功能图标(可选)
 }
 
+// 更新日志条目接口
+export interface ChangelogEntry {
+  version: string;               // 版本号
+  date: string;                  // 更新日期
+  changes: string[];             // 更新内容列表
+}
+
 // 下载链接接口
 export interface DownloadLink {
   url: string;                   // 下载地址
@@ -29,6 +36,7 @@ export interface Project {
     website?: string;            // 官网
   };
   features: Feature[];           // 主要功能列表
+  changelog?: ChangelogEntry[];  // 更新日志(可选)
   stats?: {                      // 统计数据(可选)
     downloads?: number;          // 下载量
     stars?: number;              // Star数

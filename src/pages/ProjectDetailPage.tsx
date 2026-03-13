@@ -3,6 +3,7 @@ import { useProjects } from '@/contexts/ProjectContext'
 import ProjectHero from '@/components/project/ProjectHero'
 import FeatureGrid from '@/components/project/FeatureGrid'
 import ScreenshotCarousel from '@/components/project/ScreenshotCarousel'
+import Changelog from '@/components/project/Changelog'
 import GlassCard from '@/components/ui/GlassCard'
 
 export default function ProjectDetailPage() {
@@ -73,6 +74,15 @@ export default function ProjectDetailPage() {
         <section className="py-12">
           <div className="mx-auto max-w-6xl px-6">
             <FeatureGrid features={project.features} />
+          </div>
+        </section>
+      )}
+
+      {/* 更新日志 */}
+      {project.changelog && project.changelog.length > 0 && (
+        <section className="py-12">
+          <div className="mx-auto max-w-6xl px-6">
+            <Changelog changelog={project.changelog} />
           </div>
         </section>
       )}

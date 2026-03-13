@@ -1,0 +1,78 @@
+{
+  "id": "accounthub",
+  "title": "AccountHub",
+  "subtitle": "企业级多应用账户管理后台",
+  "description": "基于 Supabase 的集中式用户与会员管理系统,为多个应用程序提供统一的账户管理中心。通过单一界面管理所有关联应用的用户账户、会员订阅、支付记录和应用配置。支持权限分离、完整审计日志、批量操作。基于 React 19 + TypeScript + Vite + Ant Design 构建,使用 TanStack Query 进行状态管理,集成 Supabase 认证和数据库服务。",
+  "icon": "/projects/accounthub/icon.png",
+  "version": "v26.3.1",
+  "tags": [
+    "Supabase",
+    "后台管理",
+    "React",
+    "TypeScript"
+  ],
+  "screenshots": [
+    "/projects/accounthub/accounthub1.jpg",
+    "/projects/accounthub/accounthub2.jpg",
+    "/projects/accounthub/accounthub3.jpg",
+    "/projects/accounthub/accounthub4.jpg"
+  ],
+  "links": {
+    "github": "https://github.com/qgming/accounthub"
+  },
+  "features": [
+    {
+      "title": "用户管理",
+      "description": "查看和搜索所有应用的用户账户,编辑用户信息(昵称/头像/邮箱),封禁/解封账户,批量操作和数据导出"
+    },
+    {
+      "title": "会员管理",
+      "description": "管理会员状态(激活/暂停/过期),编辑会员套餐信息,跟踪订阅周期和自动续费,支持试用期和手动续费"
+    },
+    {
+      "title": "支付管理",
+      "description": "查看完整支付历史,支持多种支付方式(Stripe/支付宝/微信),支付状态跟踪,退款处理和记录"
+    },
+    {
+      "title": "应用管理",
+      "description": "注册和管理多个应用,应用版本控制和发布管理,配置模板系统,兑换码生成,支付配置管理"
+    },
+    {
+      "title": "审计日志",
+      "description": "自动记录所有管理员操作,详细的操作前后数据对比,IP 地址和用户代理追踪,可按多维度筛选"
+    },
+    {
+      "title": "企业级 UI",
+      "description": "Ant Design 5.x 组件库,完整的中文本地化支持,专业美观的界面设计"
+    },
+    {
+      "title": "高性能架构",
+      "description": "React 19 + React Compiler 自动优化,TanStack Query 智能缓存,Supabase 实时订阅,TypeScript 类型安全"
+    }
+  ],
+  "changelog": [
+    {
+      "version": "v26.3.1",
+      "date": "2026-03-13",
+      "changes": [
+        "优化审计日志查询性能",
+        "修复批量操作的若干问题",
+        "改进用户界面交互体验"
+      ]
+    },
+    {
+      "version": "v26.0.0",
+      "date": "2026-02-13",
+      "changes": [
+        "首次发布",
+        "实现用户管理功能",
+        "支持会员管理",
+        "集成支付管理",
+        "添加应用管理功能",
+        "实现审计日志系统",
+        "基于 React 19 构建"
+      ]
+    }
+  ],
+  "createdAt": "2026-02-13"
+}

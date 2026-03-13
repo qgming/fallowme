@@ -1,0 +1,100 @@
+{
+  "id": "readflow",
+  "title": "流畅阅读",
+  "subtitle": "智能图书阅读与AI解析助手",
+  "description": "一款集成了 EPUB 图书阅读、AI 文章解析和智能翻译的学习应用。支持 EPUB3 格式图书阅读与真人语音朗读，聚合全球优质英文新闻源(TIME、BBC、Vice 等)，支持双翻译引擎(Google/Bing)，集成离线词典，提供 TTS 语音朗读。新增 AI 文章解析功能，为非英语母语者打造沉浸式的语言学习体验。",
+  "icon": "/projects/readflow/icon.png",
+  "version": "v1.0.2",
+  "tags": [
+    "EPUB阅读",
+    "AI解析",
+    "真人朗读",
+    "智能翻译"
+  ],
+  "screenshots": [
+    "/projects/readflow/readflow1.jpg",
+    "/projects/readflow/readflow2.jpg",
+    "/projects/readflow/readflow3.jpg",
+    "/projects/readflow/readflow4.jpg",
+    "/projects/readflow/readflow5.jpg",
+    "/projects/readflow/readflow6.jpg"
+  ],
+  "links": {
+    "download": [
+      {
+        "url": "https://pan.quark.cn/s/262f2f7af4f8",
+        "label": "夸克网盘",
+        "variant": "primary"
+      },
+      {
+        "url": "https://pan.baidu.com/s/1qaSGRik4varxB-Ygw7p13g?pwd=h5q6",
+        "label": "百度网盘",
+        "variant": "primary"
+      }
+    ]
+  },
+  "features": [
+    {
+      "title": "EPUB 图书阅读",
+      "description": "支持 EPUB3 格式,自定义字体、字号、行距、边距,支持目录导航、书签管理、阅读进度同步"
+    },
+    {
+      "title": "真人语音朗读",
+      "description": "集成 Edge TTS 引擎,支持多种语言和音色,可调节语速和音量,支持后台播放"
+    },
+    {
+      "title": "AI 文章解析",
+      "description": "智能提取文章核心观点、关键信息和结构化内容,帮助快速理解文章主旨"
+    },
+    {
+      "title": "双翻译引擎",
+      "description": "集成 Google 和 Bing 翻译,支持划词翻译、整段翻译,翻译结果可复制和分享"
+    },
+    {
+      "title": "离线词典",
+      "description": "内置英汉词典,支持单词查询、发音播放、例句展示,无需网络即可使用"
+    },
+    {
+      "title": "新闻聚合",
+      "description": "聚合 TIME、BBC、Vice 等优质英文新闻源,每日更新,支持分类浏览和收藏"
+    },
+    {
+      "title": "学习统计",
+      "description": "记录阅读时长、翻译次数、查词记录,可视化展示学习进度和成果"
+    }
+  ],
+  "changelog": [
+    {
+      "version": "v1.0.2",
+      "date": "2026-03-13",
+      "changes": [
+        "修复 EPUB 图书部分格式兼容性问题",
+        "优化可能的应用卡死问题",
+        "图书阅读页面新增生词翻译显示"
+      ]
+    },
+    {
+      "version": "v1.0.1",
+      "date": "2026-03-12",
+      "changes": [
+        "新增文章助记，数据统计页面",
+        "修复 EPUB 图书部分格式兼容性问题",
+        "优化所有AI解析页面"
+      ]
+    },
+    {
+      "version": "v1.0.0",
+      "date": "2026-02-13",
+      "changes": [
+        "首次发布",
+        "支持 EPUB3 格式图书阅读",
+        "集成真人语音朗读功能",
+        "新增 AI 文章解析功能",
+        "支持双翻译引擎",
+        "内置离线词典",
+        "聚合优质英文新闻源"
+      ]
+    }
+  ],
+  "createdAt": "2026-02-13"
+}
