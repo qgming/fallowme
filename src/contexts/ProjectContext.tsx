@@ -4,8 +4,7 @@ import type { Project } from '@/types/project'
 import getmeData from '@/data/projects/getme.json'
 import readflowData from '@/data/projects/readflow.json'
 import aiwriterData from '@/data/projects/aiwriter.json'
-import accounthubData from '@/data/projects/accounthub.json'
-import accounthubsdkData from '@/data/projects/accounthubsdk.json'
+import knowyourselfData from '@/data/projects/knowyourself.json'
 
 interface ProjectContextType {
   projects: Project[]
@@ -19,8 +18,7 @@ export function ProjectProvider({ children }: { children: ReactNode }) {
     getmeData,
     readflowData,
     aiwriterData,
-    accounthubData,
-    accounthubsdkData
+    knowyourselfData
   ] as Project[]
 
   const getProjectById = (id: string) => {

@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none">
+  <!-- 渐变：左右两半使用同源但不同冷暖的色，象征"理性/感性"两个自我 -->
+  <defs>
+    <linearGradient id="brandLeft" x1="6" y1="10" x2="32" y2="56" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#7e9f86"/>
+      <stop offset="100%" stop-color="#4d6a53"/>
+    </linearGradient>
+    <linearGradient id="brandRight" x1="32" y1="10" x2="58" y2="56" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#d87d7d"/>
+      <stop offset="100%" stop-color="#b85c5c"/>
+    </linearGradient>
+    <radialGradient id="brandCore" cx="32" cy="32" r="6" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#fff8ec"/>
+      <stop offset="100%" stop-color="#f1c97a"/>
+    </radialGradient>
+  </defs>
+
+  <!-- 圆角方形底盘：作为浏览器小图标的可识别外形 -->
+  <rect x="2" y="2" width="60" height="60" rx="14" fill="#1e2a22"/>
+
+  <!-- 左半"自我"（叶形/脑半球） -->
+  <path
+    d="M32 12
+       C20 12, 12 21, 12 32
+       C12 43, 20 52, 32 52
+       L32 12 Z"
+    fill="url(#brandLeft)"
+  />
+
+  <!-- 右半"自我"（镜像） -->
+  <path
+    d="M32 12
+       C44 12, 52 21, 52 32
+       C52 43, 44 52, 32 52
+       L32 12 Z"
+    fill="url(#brandRight)"
+  />
+
+  <!-- 中线：两个自我的接缝 -->
+  <line x1="32" y1="12" x2="32" y2="52" stroke="#1e2a22" stroke-width="1.5" stroke-linecap="round"/>
+
+  <!-- 中心觉察之光：识别自我的那一刻 -->
+  <circle cx="32" cy="32" r="5.2" fill="url(#brandCore)"/>
+  <circle cx="32" cy="32" r="5.2" fill="none" stroke="#1e2a22" stroke-width="1.2"/>
+</svg>

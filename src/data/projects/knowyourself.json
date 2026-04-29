@@ -1,0 +1,60 @@
+{
+  "id": "knowyourself",
+  "title": "认知自我",
+  "subtitle": "基于经典心理学量表的专业心理测评平台",
+  "description": "认知自我是一个在线心理测评网站，聚焦经典人格与心理学量表的数字化体验。平台提供 MBTI、大五人格、九型人格等趣味心理测试，覆盖测评介绍、答题流程、结果解锁与报告查看等完整链路，同时配有后台套题、订单、支付与渠道管理能力，适合持续运营和内容扩展。",
+  "icon": "/projects/knowyourself/icon.svg",
+  "tags": [
+    "心理测评",
+    "MBTI",
+    "大五人格",
+    "九型人格"
+  ],
+  "screenshots": [
+    "/projects/knowyourself/image1.png",
+    "/projects/knowyourself/image2.png",
+    "/projects/knowyourself/image3.png",
+    "/projects/knowyourself/image4.png"
+  ],
+  "links": {
+    "website": "https://know.qgming.com/"
+  },
+  "features": [
+    {
+      "title": "经典人格量表",
+      "description": "聚合 MBTI、大五人格、九型人格等常见心理测评主题，帮助用户从多个维度认识自我。"
+    },
+    {
+      "title": "清晰的测评流程",
+      "description": "围绕测评介绍、开始答题、结果解锁到报告查看设计完整用户路径，降低首次使用门槛。"
+    },
+    {
+      "title": "结果报告体验",
+      "description": "通过结构化结果页呈现人格倾向、维度解读和延伸理解，让结论更易阅读和分享。"
+    },
+    {
+      "title": "运营后台能力",
+      "description": "内置套题管理、订单管理、支付配置和渠道管理，便于持续更新测评内容和商业化配置。"
+    },
+    {
+      "title": "品牌化落地页",
+      "description": "首页采用专业心理平台定位，配合关键词、描述和分享信息，兼顾搜索收录与品牌表达。"
+    },
+    {
+      "title": "移动端友好",
+      "description": "面向浏览器访问场景优化，适合用户在手机与桌面端随时完成测评和查看结果。"
+    }
+  ],
+  "changelog": [
+    {
+      "version": "2026.04",
+      "date": "2026-04-29",
+      "changes": [
+        "新增认知自我项目展示页",
+        "补充心理测评平台定位与功能说明",
+        "接入官网访问入口与项目预览资源"
+      ]
+    }
+  ],
+  "createdAt": "2026-04-29"
+}
