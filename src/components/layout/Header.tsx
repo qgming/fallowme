@@ -42,7 +42,7 @@ export default function Header() {
         <div className="flex items-center justify-between rounded-[8px] border border-border bg-card/90 px-3 py-2.5 shadow-subtle backdrop-blur md:px-4">
           <Link to="/#profile" className="group flex items-center gap-2">
             <img
-              src="/avatar.jpg"
+              src="/assets/profile/qgming-avatar.jpg"
               alt="Logo"
               className="h-7 w-7 rounded-full object-cover ring-1 ring-border transition-colors group-hover:ring-accent md:h-8 md:w-8"
             />

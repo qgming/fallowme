@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import { Github, Mail, Heart } from "lucide-react";
 
 export default function Footer() {
@@ -12,8 +13,8 @@ export default function Footer() {
             © {currentYear} FallowMe. 保留所有权利.
           </p>
 
-          {/* 中间：社交图标 */}
-          <div className="flex items-center gap-2 md:gap-3">
+          {/* 中间：社交与协议入口 */}
+          <div className="flex flex-wrap items-center justify-center gap-2 md:gap-3">
             <a
               href="https://github.com/qgming"
               target="_blank"
@@ -30,6 +31,21 @@ export default function Footer() {
             >
               <Mail className="w-4 h-4" />
             </a>
+            <div className="ml-1 flex items-center gap-2 border-l border-border pl-3 text-xs md:text-sm">
+              <Link
+                to="/privacy-policy"
+                className="text-muted transition-colors hover:text-accent"
+              >
+                隐私政策
+              </Link>
+              <span className="text-border">/</span>
+              <Link
+                to="/terms-of-service"
+                className="text-muted transition-colors hover:text-accent"
+              >
+                用户协议
+              </Link>
+            </div>
           </div>
 
           {/* 右侧：Made with */}

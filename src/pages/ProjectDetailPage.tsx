@@ -1,8 +1,7 @@
-import { useParams, Navigate, Link } from 'react-router-dom'
+import { useParams, Navigate } from 'react-router-dom'
 import { useProjects } from '@/contexts/ProjectContext'
 import ProjectHero from '@/components/project/ProjectHero'
 import FeatureGrid from '@/components/project/FeatureGrid'
-import ScreenshotCarousel from '@/components/project/ScreenshotCarousel'
 import Changelog from '@/components/project/Changelog'
 import GlassCard from '@/components/ui/GlassCard'
 
@@ -60,15 +59,6 @@ export default function ProjectDetailPage() {
         </div>
       </section>
 
-      {/* 应用截图 */}
-      {project.screenshots && project.screenshots.length > 0 && (
-        <section className="py-12">
-          <div className="mx-auto max-w-6xl px-6">
-            <ScreenshotCarousel screenshots={project.screenshots} />
-          </div>
-        </section>
-      )}
-
       {/* 核心功能 */}
       {project.features && project.features.length > 0 && (
         <section className="py-12">
@@ -87,25 +77,6 @@ export default function ProjectDetailPage() {
         </section>
       )}
 
-      {/* 底部协议链接 */}
-      <section className="py-12">
-        <div className="mx-auto max-w-6xl px-6">
-          <div className="flex justify-center items-center gap-3">
-            <Link
-              to="/privacy-policy"
-              className="glass-card px-6 py-2.5 rounded-full text-sm font-medium text-muted hover:text-foreground hover:bg-accent/10 transition-all duration-300"
-            >
-              隐私政策
-            </Link>
-            <Link
-              to="/terms-of-service"
-              className="glass-card px-6 py-2.5 rounded-full text-sm font-medium text-muted hover:text-foreground hover:bg-accent/10 transition-all duration-300"
-            >
-              用户协议
-            </Link>
-          </div>
-        </div>
-      </section>
     </div>
   )
 }

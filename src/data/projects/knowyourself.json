@@ -3,18 +3,12 @@
   "title": "认知自我",
   "subtitle": "基于经典心理学量表的专业心理测评平台",
   "description": "认知自我是一个在线心理测评网站，聚焦经典人格与心理学量表的数字化体验。平台提供 MBTI、大五人格、九型人格等趣味心理测试，覆盖测评介绍、答题流程、结果解锁与报告查看等完整链路，同时配有后台套题、订单、支付与渠道管理能力，适合持续运营和内容扩展。",
-  "icon": "/projects/knowyourself/icon.svg",
+  "icon": "/assets/project-icons/knowyourself-icon.svg",
   "tags": [
     "心理测评",
     "MBTI",
     "大五人格",
     "九型人格"
-  ],
-  "screenshots": [
-    "/projects/knowyourself/image1.png",
-    "/projects/knowyourself/image2.png",
-    "/projects/knowyourself/image3.png",
-    "/projects/knowyourself/image4.png"
   ],
   "links": {
     "website": "https://know.qgming.com/"

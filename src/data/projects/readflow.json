@@ -3,21 +3,13 @@
   "title": "流畅阅读",
   "subtitle": "智能图书阅读与AI解析助手",
   "description": "一款集成了 EPUB 图书阅读、AI 文章解析和智能翻译的学习应用。支持 EPUB3 格式图书阅读与真人语音朗读，聚合全球优质英文新闻源(TIME、BBC、Vice 等)，支持双翻译引擎(Google/Bing)，集成离线词典，提供 TTS 语音朗读。新增 AI 文章解析功能，为非英语母语者打造沉浸式的语言学习体验。",
-  "icon": "/projects/readflow/icon.png",
+  "icon": "/assets/project-icons/readflow-icon.png",
   "version": "v1.0.2",
   "tags": [
     "EPUB阅读",
     "AI解析",
     "真人朗读",
     "智能翻译"
-  ],
-  "screenshots": [
-    "/projects/readflow/readflow1.jpg",
-    "/projects/readflow/readflow2.jpg",
-    "/projects/readflow/readflow3.jpg",
-    "/projects/readflow/readflow4.jpg",
-    "/projects/readflow/readflow5.jpg",
-    "/projects/readflow/readflow6.jpg"
   ],
   "links": {
     "download": [

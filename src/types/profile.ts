@@ -10,7 +10,6 @@ export interface Profile {
     email?: string;              // Email
     wechat?: {                   // 微信公众号
       name: string;              // 公众号名称
-      qrCode: string;            // 二维码图片路径
     };
     weibo?: string;              // 微博
     zhihu?: string;              // 知乎

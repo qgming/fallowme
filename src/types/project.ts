@@ -28,7 +28,6 @@ export interface Project {
   icon?: string;                 // 项目图标
   version?: string;              // 最新版本
   tags?: string[];               // 标签列表
-  screenshots: string[];         // 截图列表
   links: {
     download?: string | DownloadLink[];  // 下载地址(支持单个字符串或多个下载链接)
     github?: string;             // GitHub 仓库
