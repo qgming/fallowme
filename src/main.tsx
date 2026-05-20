@@ -8,7 +8,6 @@ import { ProfileProvider } from '@/contexts/ProfileContext'
 import Layout from '@/components/layout/Layout'
 import ProjectLayout from '@/components/layout/ProjectLayout'
 import Home from '@/pages/Home'
-import About from '@/pages/About'
 import ProjectDetailPage from '@/pages/ProjectDetailPage'
 import PrivacyPolicy from '@/pages/PrivacyPolicy'
 import TermsOfService from '@/pages/TermsOfService'
@@ -22,10 +21,6 @@ const router = createBrowserRouter([
       {
         index: true,
         element: <Home />,
-      },
-      {
-        path: 'about',
-        element: <About />,
       },
     ],
   },
