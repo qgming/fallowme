@@ -1,32 +1,19 @@
 import { createContext, useContext } from 'react'
 import type { ReactNode } from 'react'
 import type { Project } from '@/types/project'
-import getmeData from '@/data/projects/getme.json'
-import readflowData from '@/data/projects/readflow.json'
-import aiwriterData from '@/data/projects/aiwriter.json'
-import knowyourselfData from '@/data/projects/knowyourself.json'
+import projectsData from '@/data/projects.json'
 
 interface ProjectContextType {
   projects: Project[]
-  getProjectById: (id: string) => Project | undefined
 }
 
 const ProjectContext = createContext<ProjectContextType | undefined>(undefined)
 
 export function ProjectProvider({ children }: { children: ReactNode }) {
-  const projects = [
-    getmeData,
-    readflowData,
-    aiwriterData,
-    knowyourselfData
-  ] as Project[]
-
-  const getProjectById = (id: string) => {
-    return projects.find((project) => project.id === id)
-  }
+  const projects = projectsData as Project[]
 
   return (
-    <ProjectContext.Provider value={{ projects, getProjectById }}>
+    <ProjectContext.Provider value={{ projects }}>
       {children}
     </ProjectContext.Provider>
   )

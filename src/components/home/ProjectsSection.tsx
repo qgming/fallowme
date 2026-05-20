@@ -1,5 +1,4 @@
-import { ArrowRight, Download, ExternalLink, Github, type LucideIcon } from 'lucide-react'
-import { Link } from 'react-router-dom'
+import { Download, ExternalLink, Github, type LucideIcon } from 'lucide-react'
 import type { Project } from '@/types/project'
 
 interface ProjectsSectionProps {
@@ -9,33 +8,20 @@ interface ProjectsSectionProps {
 function getProjectActions(project: Project) {
   const actions: Array<{ label: string; href: string; icon: LucideIcon }> = []
 
-  if (project.links.website) {
-    actions.push({ label: '官网', href: project.links.website, icon: ExternalLink })
-  }
-
-  if (project.links.github) {
-    actions.push({ label: 'GitHub', href: project.links.github, icon: Github })
-  }
-
-  if (project.links.download) {
-    const downloadUrl = Array.isArray(project.links.download)
-      ? project.links.download[0]?.url
-      : project.links.download
-
-    if (downloadUrl) {
-      actions.push({ label: '下载', href: downloadUrl, icon: Download })
-    }
-  }
+  project.links.forEach((link) => {
+    actions.push({ label: link.label, href: link.url, icon: getLinkIcon(link.label, link.url) })
+  })
 
   return actions
 }
 
 function getProjectBadges(project: Project) {
-  if (!project.links.github) {
+  const githubLink = project.links.find((link) => isGithubLink(link.label, link.url))
+  if (!githubLink) {
     return []
   }
 
-  const match = project.links.github.match(/^https:\/\/github\.com\/([^/]+)\/([^/]+?)(?:\.git)?\/?$/i)
+  const match = githubLink.url.match(/^https:\/\/github\.com\/([^/]+)\/([^/]+?)(?:\.git)?\/?$/i)
   if (!match) {
     return []
   }
@@ -58,6 +44,22 @@ function getProjectBadges(project: Project) {
   ]
 }
 
+function getLinkIcon(label: string, url: string) {
+  if (isGithubLink(label, url)) {
+    return Github
+  }
+
+  if (/下载|夸克|百度网盘/i.test(label)) {
+    return Download
+  }
+
+  return ExternalLink
+}
+
+function isGithubLink(label: string, url: string) {
+  return /github/i.test(label) || /github\.com/i.test(url)
+}
+
 export default function ProjectsSection({ projects }: ProjectsSectionProps) {
   return (
     <section id="projects" className="section-anchor border-y border-border px-5 py-20 md:px-8 md:py-28">
@@ -73,33 +75,26 @@ export default function ProjectsSection({ projects }: ProjectsSectionProps) {
 
             return (
               <article
-                key={project.id}
+                key={project.name}
                 className="group flex h-full flex-col justify-between rounded-[8px] border border-border bg-card p-5 transition-all hover:border-accent hover:shadow-subtle md:p-6"
               >
                 <div className="space-y-7">
                   <div className="flex items-start gap-4">
                     <div className="flex h-14 w-14 flex-shrink-0 items-center justify-center overflow-hidden rounded-[8px] border border-border bg-background">
-                      {project.icon ? (
-                        <img src={project.icon} alt={project.title} className="h-full w-full object-cover" />
+                      {project.avatar ? (
+                        <img src={project.avatar} alt={project.name} className="h-full w-full object-cover" />
                       ) : (
-                        <span className="text-lg font-semibold text-accent">{project.title.charAt(0)}</span>
+                        <span className="text-lg font-semibold text-accent">{project.name.charAt(0)}</span>
                       )}
                     </div>
 
                     <div className="min-w-0 flex-1">
-                      <div className="flex flex-wrap items-center gap-2.5">
-                        <h3 className="text-xl font-semibold tracking-tight text-foreground">{project.title}</h3>
-                        {project.version && (
-                          <span className="rounded-[8px] border border-border px-2 py-1 text-xs text-muted">
-                            {project.version}
-                          </span>
-                        )}
-                      </div>
-                      <p className="mt-2 text-sm leading-6 text-muted">{project.subtitle}</p>
+                      <h3 className="text-xl font-semibold tracking-tight text-foreground">{project.name}</h3>
+                      <p className="mt-2 text-sm leading-6 text-muted">{project.summary}</p>
                     </div>
                   </div>
 
-                  {project.tags && project.tags.length > 0 && (
+                  {project.tags.length > 0 && (
                     <div className="flex flex-wrap gap-2">
                       {project.tags.slice(0, 4).map((tag) => (
                         <span key={tag} className="rounded-[8px] border border-border bg-background px-2.5 py-1 text-xs text-muted">
@@ -113,7 +108,7 @@ export default function ProjectsSection({ projects }: ProjectsSectionProps) {
                     <div className="flex flex-wrap gap-2">
                       {badges.map((badge) => (
                         <img
-                          key={`${project.id}-${badge.label}`}
+                          key={`${project.name}-${badge.label}`}
                           src={badge.src}
                           alt={badge.label}
                           className="h-5 rounded-[4px]"
@@ -130,7 +125,7 @@ export default function ProjectsSection({ projects }: ProjectsSectionProps) {
 
                     return (
                       <a
-                        key={`${project.id}-${action.label}`}
+                        key={`${project.name}-${action.label}`}
                         href={action.href}
                         target="_blank"
                         rel="noopener noreferrer"
@@ -141,13 +136,6 @@ export default function ProjectsSection({ projects }: ProjectsSectionProps) {
                       </a>
                     )
                   })}
-                  <Link
-                    to={`/projects/${project.id}`}
-                    className="ml-auto inline-flex items-center gap-1.5 rounded-[8px] border border-transparent px-2.5 py-2 text-sm font-medium text-accent transition-colors hover:border-border hover:bg-background"
-                  >
-                    详情
-                    <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
-                  </Link>
                 </div>
               </article>
             )

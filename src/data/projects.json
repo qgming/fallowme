@@ -1,0 +1,82 @@
+[
+  {
+    "name": "Getme",
+    "avatar": "/assets/project-icons/getme-icon.png",
+    "summary": "一款融合 AI 深度洞察与记忆系统的智能笔记应用",
+    "tags": [
+      "AI助手",
+      "笔记",
+      "记忆系统",
+      "本地存储"
+    ],
+    "links": [
+      {
+        "label": "立即下载",
+        "url": "https://example.com/download/getme-direct"
+      }
+    ]
+  },
+  {
+    "name": "流畅阅读",
+    "avatar": "/assets/project-icons/readflow-icon.png",
+    "summary": "智能图书阅读与AI解析助手",
+    "tags": [
+      "EPUB阅读",
+      "AI解析",
+      "真人朗读",
+      "智能翻译"
+    ],
+    "links": [
+      {
+        "label": "夸克网盘",
+        "url": "https://pan.quark.cn/s/262f2f7af4f8"
+      },
+      {
+        "label": "百度网盘",
+        "url": "https://pan.baidu.com/s/1qaSGRik4varxB-Ygw7p13g?pwd=h5q6"
+      }
+    ]
+  },
+  {
+    "name": "神笔写作",
+    "avatar": "/assets/project-icons/aiwriter-icon.png",
+    "summary": "基于 AI 技术的智能网文辅助写作应用",
+    "tags": [
+      "开源",
+      "AI写作",
+      "Electron",
+      "桌面应用"
+    ],
+    "links": [
+      {
+        "label": "下载",
+        "url": "https://github.com/qgming/shenbiai/releases"
+      },
+      {
+        "label": "GitHub",
+        "url": "https://github.com/qgming/aiwriter"
+      },
+      {
+        "label": "官网",
+        "url": "https://shenbi.qgming.com/"
+      }
+    ]
+  },
+  {
+    "name": "认知自我",
+    "avatar": "/assets/project-icons/knowyourself-icon.svg",
+    "summary": "基于经典心理学量表的专业心理测评平台",
+    "tags": [
+      "心理测评",
+      "MBTI",
+      "大五人格",
+      "九型人格"
+    ],
+    "links": [
+      {
+        "label": "官网",
+        "url": "https://know.qgming.com/"
+      }
+    ]
+  }
+]

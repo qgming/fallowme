@@ -9,8 +9,7 @@
 - ⚡ **高性能** - 使用 Vite 构建,支持 HMR 热更新
 - 🎭 **动画效果** - 丰富的滚动动画和视差效果
 - 🧩 **组件化架构** - 模块化设计,易于维护和扩展
-- 🔍 **项目筛选** - 支持按标签筛选项目作品
-- 📄 **详情页面** - 完整的项目详情展示,包含截图轮播、技术栈等
+- 🔍 **项目展示** - 使用轻量项目数据展示名称、头像、简介、标签和链接
 - 🌐 **路由管理** - 使用 React Router 实现页面导航
 
 ## 🛠️ 技术栈
@@ -33,7 +32,6 @@ src/
 │   ├── home/           # 首页组件
 │   ├── layout/         # 布局组件
 │   ├── portfolio/      # 作品集组件
-│   ├── project/        # 项目详情组件
 │   └── ui/             # 通用 UI 组件
 ├── contexts/           # React Context
 │   ├── ProfileContext.tsx
@@ -54,7 +52,6 @@ src/
 │   ├── Home.tsx
 │   ├── NotFound.tsx
 │   ├── PrivacyPolicy.tsx
-│   ├── ProjectDetailPage.tsx
 │   └── TermsOfService.tsx
 ├── types/              # TypeScript 类型定义
 │   ├── profile.ts
@@ -132,23 +129,16 @@ npm run lint
 
 ```json
 {
-  "id": "project-id",
-  "title": "项目名称",
-  "subtitle": "项目副标题",
-  "description": "项目描述",
-  "icon": "/projects/project-id/icon.png",
+  "name": "项目名称",
+  "avatar": "/assets/project-icons/project-icon.png",
+  "summary": "一句话简介",
   "tags": ["标签1", "标签2"],
-  "screenshots": ["/projects/project-id/screenshot1.jpg"],
-  "links": {
-    "download": "https://example.com/download"
-  },
-  "features": [
+  "links": [
     {
-      "title": "功能标题",
-      "description": "功能描述"
+      "label": "官网",
+      "url": "https://example.com"
     }
-  ],
-  "techStack": ["React", "TypeScript"]
+  ]
 }
 ```
 
