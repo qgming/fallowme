@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { useProjects } from '@/contexts/ProjectContext'
+import { useProjects } from '@/contexts/ProjectContextValue'
 import LinksSection from '@/components/home/LinksSection'
 import ProfileSection from '@/components/home/ProfileSection'
 import ProjectsSection from '@/components/home/ProjectsSection'

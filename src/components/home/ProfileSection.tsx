@@ -1,4 +1,4 @@
-import { useProfile } from '@/contexts/ProfileContext'
+import { useProfile } from '@/contexts/ProfileContextValue'
 
 interface BadgeItem {
   label: string

@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { CircleArrowUp, Download, ExternalLink, Github, QrCode, RefreshCw, type LucideIcon } from 'lucide-react'
+import { CircleArrowUp, Download, ExternalLink, GitFork, QrCode, RefreshCw, type LucideIcon } from 'lucide-react'
 import type { Project } from '@/types/project'
 import { fetchProjectUpdateInfo, type ProjectUpdateInfo } from '@/lib/projectUpdates'
 import ProjectQrModal from '@/components/home/ProjectQrModal'
@@ -53,7 +53,7 @@ function getProjectBadges(project: Project) {
 
 function getLinkIcon(label: string, url: string) {
   if (isGithubLink(label, url)) {
-    return Github
+    return GitFork
   }
 
   if (/下载|夸克|百度网盘/i.test(label)) {

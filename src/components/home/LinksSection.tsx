@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
-import { ArrowUpRight, Check, Copy, Github, Mail, QrCode, X, type LucideIcon } from 'lucide-react'
-import { useProfile } from '@/contexts/ProfileContext'
+import { ArrowUpRight, Check, Copy, GitFork, Mail, QrCode, X, type LucideIcon } from 'lucide-react'
+import { useProfile } from '@/contexts/ProfileContextValue'
 
 const WECHAT_OFFICIAL_QR = '/assets/profile/wxgzh-qr.jpg'
 
@@ -95,7 +95,7 @@ export default function LinksSection() {
   const links: LinkItem[] = []
 
   if (profile.social.github) {
-    links.push({ label: 'GitHub', value: 'github.com/qgming', href: profile.social.github, icon: Github })
+    links.push({ label: 'GitHub', value: 'github.com/qgming', href: profile.social.github, icon: GitFork })
   }
 
   if (profile.social.email) {

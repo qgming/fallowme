@@ -1,4 +1,4 @@
-import { Calendar, Download, ExternalLink, Github, X, type LucideIcon } from 'lucide-react'
+import { Calendar, Download, ExternalLink, GitFork, X } from 'lucide-react'
 import type { Project, ProjectLink } from '@/types/project'
 import type { ProjectUpdateInfo } from '@/lib/projectUpdates'
 
@@ -12,16 +12,16 @@ function isGithubLink(label: string, url: string) {
   return /github/i.test(label) || /github\.com/i.test(url)
 }
 
-function getLinkIcon(label: string, url: string): LucideIcon {
+function renderLinkIcon(label: string, url: string) {
   if (isGithubLink(label, url)) {
-    return Github
+    return <GitFork className="h-4 w-4" />
   }
 
   if (/下载|夸克|百度网盘|windows|android|apk|exe/i.test(label)) {
-    return Download
+    return <Download className="h-4 w-4" />
   }
 
-  return ExternalLink
+  return <ExternalLink className="h-4 w-4" />
 }
 
 function getChangeLogLines(changeLog?: string) {
@@ -40,8 +40,6 @@ function cleanChangeLogLine(line: string) {
 }
 
 function UpdateLink({ link }: { link: ProjectLink }) {
-  const Icon = getLinkIcon(link.label, link.url)
-
   return (
     <a
       href={link.url}
@@ -49,7 +47,7 @@ function UpdateLink({ link }: { link: ProjectLink }) {
       rel="noopener noreferrer"
       className="inline-flex items-center gap-1.5 rounded-[8px] border border-border bg-background px-3 py-2 text-sm text-muted transition-colors hover:border-accent hover:text-foreground"
     >
-      <Icon className="h-4 w-4" />
+      {renderLinkIcon(link.label, link.url)}
       {link.label}
     </a>
   )

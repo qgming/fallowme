@@ -95,6 +95,24 @@
     ]
   },
   {
+    "name": "极点起始页",
+    "avatar": "/assets/project-icons/polarstart-icon.svg",
+    "summary": "极点起始页是一款浏览器起始页与信息聚合工具，内置全网热搜、AI日报、IT动态、AI动态等模块，实时更新热点资讯与科技动态，支持自定义布局与高效搜索，提升日常浏览与信息获取效率。",
+    "tags": [
+      "全网热搜",
+      "AI日报",
+      "IT动态",
+      "AI动态",
+      "信息聚合"
+    ],
+    "links": [
+      {
+        "label": "官网",
+        "url": "https://s.qgming.com"
+      }
+    ]
+  },
+  {
     "name": "流金提示词",
     "avatar": "/assets/project-icons/ljprompt-icon.png",
     "summary": "精选 1000+ 提示词的微信小程序，涵盖文本创作、角色扮演与 gpt-image-2 生图。",
