@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { Github, Mail, Heart } from "lucide-react";
+import { FileText, Heart, ShieldCheck } from "lucide-react";
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
@@ -13,39 +13,22 @@ export default function Footer() {
             © {currentYear} FallowMe. 保留所有权利.
           </p>
 
-          {/* 中间：社交与协议入口 */}
+          {/* 中间：协议入口 */}
           <div className="flex flex-wrap items-center justify-center gap-2 md:gap-3">
-            <a
-              href="https://github.com/qgming"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="GitHub"
-              className="w-8 h-8 md:w-9 md:h-9 rounded-full bg-accent/10 flex items-center justify-center text-accent hover:bg-accent hover:text-white transition-all duration-300"
+            <Link
+              to="/privacy-policy"
+              className="inline-flex items-center gap-1.5 rounded-full border border-border bg-card px-3 py-1.5 text-xs text-muted transition-colors hover:border-accent hover:text-foreground md:text-sm"
             >
-              <Github className="w-4 h-4" />
-            </a>
-            <a
-              href="mailto:qgming@qq.com"
-              aria-label="Email"
-              className="w-8 h-8 md:w-9 md:h-9 rounded-full bg-accent/10 flex items-center justify-center text-accent hover:bg-accent hover:text-white transition-all duration-300"
+              <ShieldCheck className="h-3.5 w-3.5 text-accent" />
+              隐私政策
+            </Link>
+            <Link
+              to="/terms-of-service"
+              className="inline-flex items-center gap-1.5 rounded-full border border-border bg-card px-3 py-1.5 text-xs text-muted transition-colors hover:border-accent hover:text-foreground md:text-sm"
             >
-              <Mail className="w-4 h-4" />
-            </a>
-            <div className="ml-1 flex items-center gap-2 border-l border-border pl-3 text-xs md:text-sm">
-              <Link
-                to="/privacy-policy"
-                className="text-muted transition-colors hover:text-accent"
-              >
-                隐私政策
-              </Link>
-              <span className="text-border">/</span>
-              <Link
-                to="/terms-of-service"
-                className="text-muted transition-colors hover:text-accent"
-              >
-                用户协议
-              </Link>
-            </div>
+              <FileText className="h-3.5 w-3.5 text-accent" />
+              用户协议
+            </Link>
           </div>
 
           {/* 右侧：Made with */}

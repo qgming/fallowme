@@ -1,30 +1,14 @@
 [
   {
-    "name": "Getme",
-    "avatar": "/assets/project-icons/getme-icon.png",
-    "summary": "一款融合 AI 深度洞察与记忆系统的智能笔记应用",
-    "tags": [
-      "AI助手",
-      "笔记",
-      "记忆系统",
-      "本地存储"
-    ],
-    "links": [
-      {
-        "label": "立即下载",
-        "url": "https://example.com/download/getme-direct"
-      }
-    ]
-  },
-  {
     "name": "流畅阅读",
     "avatar": "/assets/project-icons/readflow-icon.png",
-    "summary": "智能图书阅读与AI解析助手",
+    "summary": "以分句分段翻译为核心的外文阅读软件，支持 EPUB 阅读朗读与 AI 解析。",
+    "updateServiceUrl": "https://pages.qgming.com/read/app.json",
     "tags": [
-      "EPUB阅读",
+      "分句翻译",
+      "外文阅读",
       "AI解析",
-      "真人朗读",
-      "智能翻译"
+      "EPUB朗读"
     ],
     "links": [
       {
@@ -40,12 +24,13 @@
   {
     "name": "神笔写作",
     "avatar": "/assets/project-icons/aiwriter-icon.png",
-    "summary": "基于 AI 技术的智能网文辅助写作应用",
+    "summary": "面向网文创作的写作 Agent，支持 skills、自定义模型、内置工具与网文专用技能。",
+    "updateServiceUrl": "https://pages.qgming.com/shenbi/app.json",
     "tags": [
-      "开源",
-      "AI写作",
-      "Electron",
-      "桌面应用"
+      "写作Agent",
+      "Skills",
+      "自定义模型",
+      "网文技能"
     ],
     "links": [
       {
@@ -63,14 +48,75 @@
     ]
   },
   {
+    "name": "食记",
+    "avatar": "/assets/project-icons/shiji-icon.png",
+    "summary": "支持自建菜谱与 300+ 精选菜谱的离线菜谱软件，做饭时随手可查。",
+    "updateServiceUrl": "https://pages.qgming.com/shiji/app.json",
+    "tags": [
+      "自建菜谱",
+      "精选菜谱",
+      "离线使用",
+      "做饭助手"
+    ],
+    "links": []
+  },
+  {
+    "name": "Getme",
+    "avatar": "/assets/project-icons/getme-icon.png",
+    "summary": "结合 AI 洞察与记忆系统的智能笔记软件，帮助沉淀记录、总结与长期记忆。",
+    "tags": [
+      "智能笔记",
+      "AI洞察",
+      "记忆系统",
+      "本地存储"
+    ],
+    "links": [
+      {
+        "label": "立即下载",
+        "url": "https://example.com/download/getme-direct"
+      }
+    ]
+  },
+  {
+    "name": "橘子导航",
+    "avatar": "/assets/project-icons/orange-icon.svg",
+    "summary": "聚合影视资源导航、豆瓣周榜、网剧热度与票房收视数据的影视导航网站。",
+    "tags": [
+      "影视导航",
+      "豆瓣周榜",
+      "网剧热度",
+      "票房收视"
+    ],
+    "links": [
+      {
+        "label": "官网",
+        "url": "https://v.qgming.com/"
+      }
+    ]
+  },
+  {
+    "name": "流金提示词",
+    "avatar": "/assets/project-icons/ljprompt-icon.png",
+    "summary": "精选 1000+ 提示词的微信小程序，涵盖文本创作、角色扮演与 gpt-image-2 生图。",
+    "qrCodeImage": "/assets/project-icons/ljprompt-qr.png",
+    "qrCodeLabel": "微信扫码查看流金提示词小程序",
+    "tags": [
+      "微信小程序",
+      "提示词库",
+      "角色扮演",
+      "gpt-image-2"
+    ],
+    "links": []
+  },
+  {
     "name": "认知自我",
     "avatar": "/assets/project-icons/knowyourself-icon.svg",
-    "summary": "基于经典心理学量表的专业心理测评平台",
+    "summary": "趣味心理认知测试网站，提供社恐等级、打工人人格等轻量好玩的测试。",
     "tags": [
-      "心理测评",
-      "MBTI",
-      "大五人格",
-      "九型人格"
+      "趣味测试",
+      "心理认知",
+      "社恐等级",
+      "打工人人格"
     ],
     "links": [
       {

@@ -132,6 +132,7 @@ npm run lint
   "name": "项目名称",
   "avatar": "/assets/project-icons/project-icon.png",
   "summary": "一句话简介",
+  "updateServiceUrl": "https://example.com/app.json",
   "tags": ["标签1", "标签2"],
   "links": [
     {

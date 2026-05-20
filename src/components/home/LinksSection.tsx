@@ -1,15 +1,96 @@
-import { ArrowUpRight, Github, Mail, MessageCircle, Twitter, type LucideIcon } from 'lucide-react'
+import { useEffect, useState } from 'react'
+import { ArrowUpRight, Check, Copy, Github, Mail, QrCode, X, type LucideIcon } from 'lucide-react'
 import { useProfile } from '@/contexts/ProfileContext'
+
+const WECHAT_OFFICIAL_QR = '/assets/profile/wxgzh-qr.jpg'
 
 interface LinkItem {
   label: string
   value: string
   href?: string
   icon: LucideIcon
+  qrImage?: string
+  copyValue?: string
+}
+
+function QrModal({ title, description, image, onClose }: { title: string; description: string; image: string; onClose: () => void }) {
+  return (
+    <div
+      className="fixed inset-0 z-50 flex items-center justify-center bg-background/75 px-4 py-6 backdrop-blur-md"
+      role="presentation"
+      onClick={onClose}
+    >
+      <section
+        aria-labelledby="link-qr-title"
+        aria-modal="true"
+        role="dialog"
+        className="w-full max-w-md overflow-hidden rounded-[8px] border border-border bg-card shadow-subtle"
+        onClick={(event) => event.stopPropagation()}
+      >
+        <div className="flex items-start justify-between gap-4 border-b border-border px-5 py-4 md:px-6">
+          <div className="min-w-0">
+            <p className="text-xs font-medium uppercase tracking-[0.18em] text-muted">二维码</p>
+            <h3 id="link-qr-title" className="mt-2 text-xl font-semibold text-foreground">
+              {title}
+            </h3>
+            <p className="mt-2 text-sm leading-6 text-muted">{description}</p>
+          </div>
+
+          <button
+            type="button"
+            aria-label="关闭二维码"
+            className="inline-flex h-9 w-9 flex-shrink-0 items-center justify-center rounded-[8px] border border-border text-muted transition-colors hover:border-accent hover:text-foreground"
+            onClick={onClose}
+          >
+            <X className="h-4 w-4" />
+          </button>
+        </div>
+
+        <div className="px-5 py-5 md:px-6">
+          <div className="overflow-hidden rounded-[8px] border border-border bg-background p-3">
+            <img src={image} alt={`${title}二维码`} className="h-auto w-full rounded-[6px]" />
+          </div>
+        </div>
+      </section>
+    </div>
+  )
 }
 
 export default function LinksSection() {
   const { profile } = useProfile()
+  const [activeQr, setActiveQr] = useState<LinkItem | null>(null)
+  const [copiedLabel, setCopiedLabel] = useState<string | null>(null)
+
+  useEffect(() => {
+    if (!activeQr) {
+      return
+    }
+
+    const closeOnEscape = (event: KeyboardEvent) => {
+      if (event.key === 'Escape') {
+        setActiveQr(null)
+      }
+    }
+
+    window.addEventListener('keydown', closeOnEscape)
+
+    return () => {
+      window.removeEventListener('keydown', closeOnEscape)
+    }
+  }, [activeQr])
+
+  const copyToClipboard = async (item: LinkItem) => {
+    if (!item.copyValue) {
+      return
+    }
+
+    await navigator.clipboard.writeText(item.copyValue)
+    setCopiedLabel(item.label)
+
+    window.setTimeout(() => {
+      setCopiedLabel(null)
+    }, 1600)
+  }
 
   const links: LinkItem[] = []
 
@@ -17,27 +98,16 @@ export default function LinksSection() {
     links.push({ label: 'GitHub', value: 'github.com/qgming', href: profile.social.github, icon: Github })
   }
 
-  if (profile.social.twitter) {
-    links.push({ label: 'X', value: 'x.com/qgmingx', href: profile.social.twitter, icon: Twitter })
-  }
-
   if (profile.social.email) {
-    links.push({ label: 'Email', value: profile.social.email, href: `mailto:${profile.social.email}`, icon: Mail })
-  }
-
-  if (profile.social.weibo) {
-    links.push({ label: '微博', value: 'weibo.com/u/6521776570', href: profile.social.weibo, icon: MessageCircle })
-  }
-
-  if (profile.social.bilibili) {
-    links.push({ label: 'Bilibili', value: 'space.bilibili.com/312954339', href: profile.social.bilibili, icon: MessageCircle })
+    links.push({ label: 'Email', value: profile.social.email, icon: Mail, copyValue: profile.social.email })
   }
 
   if (profile.social.wechat) {
     links.push({
-      label: '微信',
+      label: '微信公众号',
       value: profile.social.wechat.name,
-      icon: MessageCircle,
+      icon: QrCode,
+      qrImage: WECHAT_OFFICIAL_QR,
     })
   }
 
@@ -57,9 +127,17 @@ export default function LinksSection() {
                   <span className="flex h-11 w-11 items-center justify-center rounded-[8px] border border-border bg-background text-accent transition-colors group-hover:border-accent/30">
                     <Icon className="h-4 w-4" />
                   </span>
-                  {item.href && (
+                  {(item.href || item.qrImage || item.copyValue) && (
                     <span className="flex h-8 w-8 items-center justify-center rounded-[8px] text-muted transition-colors group-hover:bg-background group-hover:text-accent">
-                      <ArrowUpRight className="h-4 w-4" />
+                      {item.copyValue && copiedLabel === item.label ? (
+                        <Check className="h-4 w-4" />
+                      ) : item.copyValue ? (
+                        <Copy className="h-4 w-4" />
+                      ) : item.qrImage ? (
+                        <QrCode className="h-4 w-4" />
+                      ) : (
+                        <ArrowUpRight className="h-4 w-4" />
+                      )}
                     </span>
                   )}
                 </div>
@@ -70,6 +148,32 @@ export default function LinksSection() {
                 </div>
               </>
             )
+
+            if (item.copyValue) {
+              return (
+                <button
+                  type="button"
+                  key={item.label}
+                  className="group flex min-h-[176px] flex-col justify-between rounded-[8px] border border-border bg-card p-5 text-left transition-all hover:border-accent hover:shadow-subtle"
+                  onClick={() => void copyToClipboard(item)}
+                >
+                  {content}
+                </button>
+              )
+            }
+
+            if (item.qrImage) {
+              return (
+                <button
+                  type="button"
+                  key={item.label}
+                  className="group flex min-h-[176px] flex-col justify-between rounded-[8px] border border-border bg-card p-5 text-left transition-all hover:border-accent hover:shadow-subtle"
+                  onClick={() => setActiveQr(item)}
+                >
+                  {content}
+                </button>
+              )
+            }
 
             if (!item.href) {
               return (
@@ -96,6 +200,15 @@ export default function LinksSection() {
           })}
         </div>
       </div>
+
+      {activeQr?.qrImage && (
+        <QrModal
+          title={activeQr.label}
+          description={activeQr.value}
+          image={activeQr.qrImage}
+          onClose={() => setActiveQr(null)}
+        />
+      )}
     </section>
   )
 }
