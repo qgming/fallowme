@@ -22,35 +22,6 @@ function getProjectActions(project: Project, updateInfo?: ProjectUpdateInfo) {
   return actions
 }
 
-function getProjectBadges(project: Project) {
-  const githubLink = project.links.find((link) => isGithubLink(link.label, link.url))
-  if (!githubLink) {
-    return []
-  }
-
-  const match = githubLink.url.match(/^https:\/\/github\.com\/([^/]+)\/([^/]+?)(?:\.git)?\/?$/i)
-  if (!match) {
-    return []
-  }
-
-  const [, owner, repo] = match
-
-  return [
-    {
-      label: 'Stars',
-      src: `https://img.shields.io/github/stars/${owner}/${repo}?style=flat-square`,
-    },
-    {
-      label: 'Last Commit',
-      src: `https://img.shields.io/github/last-commit/${owner}/${repo}?style=flat-square`,
-    },
-    {
-      label: 'Release',
-      src: `https://img.shields.io/github/v/release/${owner}/${repo}?style=flat-square`,
-    },
-  ]
-}
-
 function getLinkIcon(label: string, url: string) {
   if (isGithubLink(label, url)) {
     return GitFork
@@ -143,7 +114,6 @@ export default function ProjectsSection({ projects }: ProjectsSectionProps) {
             const hasUpdateService = Boolean(project.updateServiceUrl)
             const isLoadingUpdate = hasUpdateService && !updateInfo && !failedUpdates.has(project.name)
             const actions = getProjectActions(project, updateInfo)
-            const badges = getProjectBadges(project)
             const canOpenChangeLog = Boolean(updateInfo?.changeLog)
             const canOpenQrCode = Boolean(project.qrCodeImage)
 
@@ -198,20 +168,6 @@ export default function ProjectsSection({ projects }: ProjectsSectionProps) {
                         <span key={tag} className="rounded-[8px] border border-border bg-background px-2.5 py-1 text-xs text-muted">
                           {tag}
                         </span>
-                      ))}
-                    </div>
-                  )}
-
-                  {badges.length > 0 && (
-                    <div className="flex flex-wrap gap-2">
-                      {badges.map((badge) => (
-                        <img
-                          key={`${project.name}-${badge.label}`}
-                          src={badge.src}
-                          alt={badge.label}
-                          className="h-5 rounded-[4px]"
-                          loading="lazy"
-                        />
                       ))}
                     </div>
                   )}

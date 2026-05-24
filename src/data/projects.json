@@ -35,15 +35,11 @@
     "links": [
       {
         "label": "下载",
-        "url": "https://github.com/qgming/shenbiai/releases"
+        "url": "https://github.com/qgming/ainovelstudio/releases"
       },
       {
         "label": "GitHub",
-        "url": "https://github.com/qgming/aiwriter"
-      },
-      {
-        "label": "官网",
-        "url": "https://shenbi.qgming.com/"
+        "url": "https://github.com/qgming/ainovelstudio"
       }
     ]
   },
@@ -78,6 +74,23 @@
     ]
   },
   {
+    "name": "菟丝动态文件托管",
+    "avatar": "/assets/project-icons/tusi-icon.svg",
+    "summary": "一个部署在 Cloudflare Pages 上的轻量文件托管后台，用 KV 管理 JSON、Markdown 和 HTML 文件。",
+    "tags": [
+      "轻量文件托管",
+      "Cloudflare Pages",
+      "KV存储",
+      "JSON/Markdown/HTML管理"
+    ],
+    "links": [
+      {
+        "label": "GitHub",
+        "url": "https://github.com/qgming/adminpages"
+      }
+    ]
+  },
+  {
     "name": "橘子导航",
     "avatar": "/assets/project-icons/orange-icon.svg",
     "summary": "聚合影视资源导航、豆瓣周榜、网剧热度与票房收视数据的影视导航网站。",
@@ -91,6 +104,10 @@
       {
         "label": "官网",
         "url": "https://v.qgming.com/"
+      },
+      {
+        "label": "GitHub",
+        "url": "https://github.com/qgming/orange"
       }
     ]
   },
@@ -109,6 +126,10 @@
       {
         "label": "官网",
         "url": "https://s.qgming.com"
+      },
+      {
+        "label": "GitHub",
+        "url": "https://github.com/qgming/polarstart"
       }
     ]
   },
