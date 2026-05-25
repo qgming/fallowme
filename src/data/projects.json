@@ -1,5 +1,6 @@
 [
   {
+    "id": "readflow",
     "name": "流畅阅读",
     "avatar": "/assets/project-icons/readflow-icon.png",
     "summary": "以分句分段翻译为核心的外文阅读软件，支持 EPUB 阅读朗读与 AI 解析。",
@@ -22,6 +23,7 @@
     ]
   },
   {
+    "id": "ainovelstudio",
     "name": "神笔写作",
     "avatar": "/assets/project-icons/aiwriter-icon.png",
     "summary": "面向网文创作的写作 Agent，支持 skills、自定义模型、内置工具与网文专用技能。",
@@ -44,6 +46,7 @@
     ]
   },
   {
+    "id": "shiji",
     "name": "食记",
     "avatar": "/assets/project-icons/shiji-icon.png",
     "summary": "支持自建菜谱与 300+ 精选菜谱的离线菜谱软件，做饭时随手可查。",
@@ -57,6 +60,7 @@
     "links": []
   },
   {
+    "id": "getme",
     "name": "Getme",
     "avatar": "/assets/project-icons/getme-icon.png",
     "summary": "结合 AI 洞察与记忆系统的智能笔记软件，帮助沉淀记录、总结与长期记忆。",
@@ -68,12 +72,13 @@
     ],
     "links": [
       {
-        "label": "立即下载",
+        "label": "下载",
         "url": "https://example.com/download/getme-direct"
       }
     ]
   },
   {
+    "id": "tusi",
     "name": "菟丝动态文件托管",
     "avatar": "/assets/project-icons/tusi-icon.svg",
     "summary": "一个部署在 Cloudflare Pages 上的轻量文件托管后台，用 KV 管理 JSON、Markdown 和 HTML 文件。",
@@ -91,6 +96,7 @@
     ]
   },
   {
+    "id": "orange-nav",
     "name": "橘子导航",
     "avatar": "/assets/project-icons/orange-icon.svg",
     "summary": "聚合影视资源导航、豆瓣周榜、网剧热度与票房收视数据的影视导航网站。",
@@ -112,6 +118,7 @@
     ]
   },
   {
+    "id": "polarstart",
     "name": "极点起始页",
     "avatar": "/assets/project-icons/polarstart-icon.svg",
     "summary": "极点起始页是一款浏览器起始页与信息聚合工具，内置全网热搜、AI日报、IT动态、AI动态等模块，实时更新热点资讯与科技动态，支持自定义布局与高效搜索，提升日常浏览与信息获取效率。",
@@ -134,6 +141,7 @@
     ]
   },
   {
+    "id": "liujin-prompt",
     "name": "流金提示词",
     "avatar": "/assets/project-icons/ljprompt-icon.png",
     "summary": "精选 1000+ 提示词的微信小程序，涵盖文本创作、角色扮演与 gpt-image-2 生图。",
@@ -148,6 +156,7 @@
     "links": []
   },
   {
+    "id": "knowyourself",
     "name": "认知自我",
     "avatar": "/assets/project-icons/knowyourself-icon.svg",
     "summary": "趣味心理认知测试网站，提供社恐等级、打工人人格等轻量好玩的测试。",

@@ -7,14 +7,14 @@ export default function Footer() {
   return (
     <footer className="relative overflow-hidden mt-12 md:mt-20">
       <div className="relative mx-auto max-w-7xl px-4 md:px-12 py-8 md:py-12">
-        <div className="flex flex-col md:flex-row items-center justify-between gap-4 md:gap-6">
+        <div className="flex flex-col items-center gap-4 md:grid md:grid-cols-[1fr_auto_1fr] md:gap-6">
           {/* 左侧：版权信息 */}
-          <p className="text-xs md:text-sm text-muted text-center md:text-left">
-            © {currentYear} FallowMe. 保留所有权利.
+          <p className="text-xs md:text-sm text-muted text-center md:justify-self-start md:text-left">
+            © {currentYear} QGMING. 保留所有权利.
           </p>
 
           {/* 中间：协议入口 */}
-          <div className="flex flex-wrap items-center justify-center gap-2 md:gap-3">
+          <div className="flex flex-wrap items-center justify-center gap-2 md:justify-self-center md:gap-3">
             <Link
               to="/privacy-policy"
               className="inline-flex items-center gap-1.5 rounded-full border border-border bg-card px-3 py-1.5 text-xs text-muted transition-colors hover:border-accent hover:text-foreground md:text-sm"
@@ -32,7 +32,7 @@ export default function Footer() {
           </div>
 
           {/* 右侧：Made with */}
-          <p className="text-xs md:text-sm text-muted flex items-center gap-1 text-center md:text-left">
+          <p className="text-xs md:text-sm text-muted flex items-center gap-1 text-center md:justify-self-end md:text-left">
             Made with <Heart className="w-4 h-4 text-accent fill-accent" /> by
             qgming
           </p>

@@ -1,5 +1,14 @@
 import { useEffect, useState } from 'react'
 import { useProjects } from '@/contexts/ProjectContextValue'
+import {
+  SITE_DESCRIPTION,
+  SITE_IMAGE,
+  SITE_TITLE,
+  SITE_URL,
+  setCanonical,
+  setNamedMeta,
+  setPropertyMeta,
+} from '@/lib/seo'
 import LinksSection from '@/components/home/LinksSection'
 import ProfileSection from '@/components/home/ProfileSection'
 import ProjectsSection from '@/components/home/ProjectsSection'
@@ -71,8 +80,29 @@ function TypewriterIntro() {
   )
 }
 
+function useHomeSeo() {
+  useEffect(() => {
+    document.title = SITE_TITLE
+    setNamedMeta('description', SITE_DESCRIPTION)
+    setNamedMeta('twitter:card', 'summary')
+    setNamedMeta('twitter:title', SITE_TITLE)
+    setNamedMeta('twitter:description', SITE_DESCRIPTION)
+    setNamedMeta('twitter:image', SITE_IMAGE)
+    setPropertyMeta('og:type', 'website')
+    setPropertyMeta('og:site_name', 'FallowMe')
+    setPropertyMeta('og:title', SITE_TITLE)
+    setPropertyMeta('og:description', SITE_DESCRIPTION)
+    setPropertyMeta('og:url', `${SITE_URL}/`)
+    setPropertyMeta('og:image', SITE_IMAGE)
+    setCanonical(`${SITE_URL}/`)
+
+    document.getElementById('project-structured-data')?.remove()
+  }, [])
+}
+
 export default function Home() {
   const { projects } = useProjects()
+  useHomeSeo()
 
   return (
     <div className="relative min-h-screen">

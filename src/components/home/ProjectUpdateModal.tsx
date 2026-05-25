@@ -1,6 +1,7 @@
-import { Calendar, Download, ExternalLink, GitFork, X } from 'lucide-react'
+import { Calendar, X } from 'lucide-react'
 import type { Project, ProjectLink } from '@/types/project'
 import type { ProjectUpdateInfo } from '@/lib/projectUpdates'
+import { getProjectLinkIcon, getProjectLinkLabel } from '@/lib/projectLinks'
 
 interface ProjectUpdateModalProps {
   project: Project
@@ -8,20 +9,10 @@ interface ProjectUpdateModalProps {
   onClose: () => void
 }
 
-function isGithubLink(label: string, url: string) {
-  return /github/i.test(label) || /github\.com/i.test(url)
-}
-
 function renderLinkIcon(label: string, url: string) {
-  if (isGithubLink(label, url)) {
-    return <GitFork className="h-4 w-4" />
-  }
+  const Icon = getProjectLinkIcon(label, url)
 
-  if (/下载|夸克|百度网盘|windows|android|apk|exe/i.test(label)) {
-    return <Download className="h-4 w-4" />
-  }
-
-  return <ExternalLink className="h-4 w-4" />
+  return <Icon className="h-4 w-4" />
 }
 
 function getChangeLogLines(changeLog?: string) {
@@ -40,6 +31,8 @@ function cleanChangeLogLine(line: string) {
 }
 
 function UpdateLink({ link }: { link: ProjectLink }) {
+  const label = getProjectLinkLabel(link.label, link.url)
+
   return (
     <a
       href={link.url}
@@ -48,7 +41,7 @@ function UpdateLink({ link }: { link: ProjectLink }) {
       className="inline-flex items-center gap-1.5 rounded-[8px] border border-border bg-background px-3 py-2 text-sm text-muted transition-colors hover:border-accent hover:text-foreground"
     >
       {renderLinkIcon(link.label, link.url)}
-      {link.label}
+      {label}
     </a>
   )
 }

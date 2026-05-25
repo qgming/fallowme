@@ -9,6 +9,7 @@ import Layout from '@/components/layout/Layout'
 import ProjectLayout from '@/components/layout/ProjectLayout'
 import Home from '@/pages/Home'
 import PrivacyPolicy from '@/pages/PrivacyPolicy'
+import ProjectDetail from '@/pages/ProjectDetail'
 import TermsOfService from '@/pages/TermsOfService'
 import NotFound from '@/pages/NotFound'
 
@@ -40,6 +41,16 @@ const router = createBrowserRouter([
       {
         index: true,
         element: <TermsOfService />,
+      },
+    ],
+  },
+  {
+    path: ':projectId',
+    element: <ProjectLayout />,
+    children: [
+      {
+        index: true,
+        element: <ProjectDetail />,
       },
     ],
   },

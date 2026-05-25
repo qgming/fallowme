@@ -1,7 +1,9 @@
 import { useEffect, useState } from 'react'
-import { CircleArrowUp, Download, ExternalLink, GitFork, QrCode, RefreshCw, type LucideIcon } from 'lucide-react'
+import { useNavigate } from 'react-router-dom'
+import { CircleArrowUp, QrCode, RefreshCw } from 'lucide-react'
 import type { Project } from '@/types/project'
 import { fetchProjectUpdateInfo, type ProjectUpdateInfo } from '@/lib/projectUpdates'
+import { getProjectActions } from '@/lib/projectLinks'
 import ProjectQrModal from '@/components/home/ProjectQrModal'
 import ProjectUpdateModal from '@/components/home/ProjectUpdateModal'
 
@@ -11,38 +13,12 @@ interface ProjectsSectionProps {
 
 type ProjectUpdateState = Record<string, ProjectUpdateInfo | undefined>
 
-function getProjectActions(project: Project, updateInfo?: ProjectUpdateInfo) {
-  const actions: Array<{ label: string; href: string; icon: LucideIcon }> = []
-  const links = updateInfo?.links ?? project.links
-
-  links.forEach((link) => {
-    actions.push({ label: link.label, href: link.url, icon: getLinkIcon(link.label, link.url) })
-  })
-
-  return actions
-}
-
-function getLinkIcon(label: string, url: string) {
-  if (isGithubLink(label, url)) {
-    return GitFork
-  }
-
-  if (/下载|夸克|百度网盘/i.test(label)) {
-    return Download
-  }
-
-  return ExternalLink
-}
-
-function isGithubLink(label: string, url: string) {
-  return /github/i.test(label) || /github\.com/i.test(url)
-}
-
 export default function ProjectsSection({ projects }: ProjectsSectionProps) {
+  const navigate = useNavigate()
   const [updates, setUpdates] = useState<ProjectUpdateState>({})
   const [failedUpdates, setFailedUpdates] = useState<Set<string>>(() => new Set())
-  const [activeUpdateProjectName, setActiveUpdateProjectName] = useState<string | null>(null)
-  const [activeQrProjectName, setActiveQrProjectName] = useState<string | null>(null)
+  const [activeUpdateProjectId, setActiveUpdateProjectId] = useState<string | null>(null)
+  const [activeQrProjectId, setActiveQrProjectId] = useState<string | null>(null)
 
   useEffect(() => {
     const controller = new AbortController()
@@ -58,14 +34,14 @@ export default function ProjectsSection({ projects }: ProjectsSectionProps) {
             return
           }
 
-          setUpdates((currentUpdates) => ({ ...currentUpdates, [project.name]: updateInfo }))
+          setUpdates((currentUpdates) => ({ ...currentUpdates, [project.id]: updateInfo }))
         })
         .catch(() => {
           if (controller.signal.aborted) {
             return
           }
 
-          setFailedUpdates((currentFailures) => new Set(currentFailures).add(project.name))
+          setFailedUpdates((currentFailures) => new Set(currentFailures).add(project.id))
         })
     })
 
@@ -75,14 +51,14 @@ export default function ProjectsSection({ projects }: ProjectsSectionProps) {
   }, [projects])
 
   useEffect(() => {
-    if (!activeUpdateProjectName && !activeQrProjectName) {
+    if (!activeUpdateProjectId && !activeQrProjectId) {
       return
     }
 
     const closeOnEscape = (event: KeyboardEvent) => {
       if (event.key === 'Escape') {
-        setActiveUpdateProjectName(null)
-        setActiveQrProjectName(null)
+        setActiveUpdateProjectId(null)
+        setActiveQrProjectId(null)
       }
     }
 
@@ -91,14 +67,14 @@ export default function ProjectsSection({ projects }: ProjectsSectionProps) {
     return () => {
       window.removeEventListener('keydown', closeOnEscape)
     }
-  }, [activeQrProjectName, activeUpdateProjectName])
+  }, [activeQrProjectId, activeUpdateProjectId])
 
-  const activeUpdateProject = activeUpdateProjectName
-    ? projects.find((project) => project.name === activeUpdateProjectName)
+  const activeUpdateProject = activeUpdateProjectId
+    ? projects.find((project) => project.id === activeUpdateProjectId)
     : undefined
-  const activeUpdateInfo = activeUpdateProjectName ? updates[activeUpdateProjectName] : undefined
-  const activeQrProject = activeQrProjectName
-    ? projects.find((project) => project.name === activeQrProjectName)
+  const activeUpdateInfo = activeUpdateProjectId ? updates[activeUpdateProjectId] : undefined
+  const activeQrProject = activeQrProjectId
+    ? projects.find((project) => project.id === activeQrProjectId)
     : undefined
 
   return (
@@ -110,17 +86,26 @@ export default function ProjectsSection({ projects }: ProjectsSectionProps) {
 
         <div className="grid gap-4 lg:grid-cols-2 lg:gap-5">
           {projects.map((project) => {
-            const updateInfo = updates[project.name]
+            const updateInfo = updates[project.id]
             const hasUpdateService = Boolean(project.updateServiceUrl)
-            const isLoadingUpdate = hasUpdateService && !updateInfo && !failedUpdates.has(project.name)
+            const isLoadingUpdate = hasUpdateService && !updateInfo && !failedUpdates.has(project.id)
             const actions = getProjectActions(project, updateInfo)
             const canOpenChangeLog = Boolean(updateInfo?.changeLog)
             const canOpenQrCode = Boolean(project.qrCodeImage)
 
             return (
               <article
-                key={project.name}
-                className="group flex h-full flex-col justify-between rounded-[8px] border border-border bg-card p-4 transition-all hover:border-accent hover:shadow-subtle md:p-5"
+                key={project.id}
+                role="link"
+                tabIndex={0}
+                className="group relative flex h-full cursor-pointer flex-col justify-between rounded-[8px] border border-border bg-card p-4 transition-all hover:-translate-y-0.5 hover:border-accent hover:shadow-subtle focus:outline-none focus:ring-2 focus:ring-accent/30 md:p-5"
+                onClick={() => navigate(`/${project.id}`)}
+                onKeyDown={(event) => {
+                  if (event.key === 'Enter' || event.key === ' ') {
+                    event.preventDefault()
+                    navigate(`/${project.id}`)
+                  }
+                }}
               >
                 <div className="space-y-4">
                   <div className="flex items-start gap-4">
@@ -145,8 +130,11 @@ export default function ProjectsSection({ projects }: ProjectsSectionProps) {
                             type="button"
                             aria-label={`${project.name} 更新日志`}
                             title="更新日志"
-                            className="inline-flex h-7 w-7 items-center justify-center rounded-[8px] border border-border bg-background text-muted transition-colors hover:border-accent hover:text-foreground"
-                            onClick={() => setActiveUpdateProjectName(project.name)}
+                            className="relative z-10 inline-flex h-7 w-7 items-center justify-center rounded-[8px] border border-border bg-background text-muted transition-colors hover:border-accent hover:text-foreground"
+                            onClick={(event) => {
+                              event.stopPropagation()
+                              setActiveUpdateProjectId(project.id)
+                            }}
                           >
                             <CircleArrowUp className="h-4 w-4" />
                           </button>
@@ -174,12 +162,15 @@ export default function ProjectsSection({ projects }: ProjectsSectionProps) {
                 </div>
 
                 {(actions.length > 0 || canOpenQrCode) && (
-                  <div className="mt-4 flex flex-wrap items-center gap-2">
+                  <div className="relative z-10 mt-4 flex flex-wrap items-center gap-2">
                     {canOpenQrCode && (
                       <button
                         type="button"
                         className="inline-flex items-center gap-1.5 rounded-[8px] border border-border bg-background px-3 py-2 text-sm text-muted transition-colors hover:border-accent hover:bg-card hover:text-foreground"
-                        onClick={() => setActiveQrProjectName(project.name)}
+                        onClick={(event) => {
+                          event.stopPropagation()
+                          setActiveQrProjectId(project.id)
+                        }}
                       >
                         <QrCode className="h-4 w-4" />
                         小程序
@@ -195,6 +186,7 @@ export default function ProjectsSection({ projects }: ProjectsSectionProps) {
                           target="_blank"
                           rel="noopener noreferrer"
                           className="inline-flex items-center gap-1.5 rounded-[8px] border border-border bg-background px-3 py-2 text-sm text-muted transition-colors hover:border-accent hover:bg-card hover:text-foreground"
+                          onClick={(event) => event.stopPropagation()}
                         >
                           <Icon className="h-4 w-4" />
                           {action.label}
@@ -213,12 +205,12 @@ export default function ProjectsSection({ projects }: ProjectsSectionProps) {
         <ProjectUpdateModal
           project={activeUpdateProject}
           updateInfo={activeUpdateInfo}
-          onClose={() => setActiveUpdateProjectName(null)}
+          onClose={() => setActiveUpdateProjectId(null)}
         />
       )}
 
       {activeQrProject && (
-        <ProjectQrModal project={activeQrProject} onClose={() => setActiveQrProjectName(null)} />
+        <ProjectQrModal project={activeQrProject} onClose={() => setActiveQrProjectId(null)} />
       )}
     </section>
   )
