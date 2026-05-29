@@ -68,7 +68,7 @@ function TypewriterIntro() {
   return (
     <section className="px-5 pt-20 pb-14 md:px-8 md:pt-32 md:pb-20">
       <div className="mx-auto flex max-w-6xl justify-center overflow-hidden text-center">
-        <p className="whitespace-nowrap font-mono text-[3rem] font-black leading-none text-foreground sm:text-[4.5rem] md:text-[8.5rem] lg:text-[10rem]">
+        <p className="max-w-full whitespace-nowrap font-mono text-[clamp(2.35rem,13vw,3rem)] font-black leading-none text-foreground sm:text-[4.5rem] md:text-[8.5rem] lg:text-[10rem]">
           <span className="sr-only">{GREETING_TEXT}</span>
           <span aria-hidden="true">
             {typedText}
