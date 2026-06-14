@@ -1,5 +1,24 @@
 [
   {
+    "id": "polaragent",
+    "name": "PolarAgent",
+    "avatar": "/assets/project-icons/polaragent-icon.png",
+    "summary": "PolarAgent 是一个面向本地工作流的 AI Agent 桌面应用。它不是只用于聊天的窗口，而是一个可以连接模型、读取资料、调用工具、操作浏览器、理解桌面界面并组织多个助手协作的工作台。",
+    "tags": [
+      "AI Agent",
+      "MCP",
+      "SKILLS",
+      "Browser USE",
+      "助手"
+    ],
+    "links": [
+      {
+        "label": "GitHub",
+        "url": "https://github.com/qgming/polaragent"
+      }
+    ]
+  },
+  {
     "id": "readflow",
     "name": "流畅阅读",
     "avatar": "/assets/project-icons/readflow-icon.png",
