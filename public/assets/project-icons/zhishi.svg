@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bgCream1" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FCF9F2" />
+      <stop offset="100%" stop-color="#F2ECE1" />
+    </linearGradient>
+    <linearGradient id="cheeseGold1" x1="15%" y1="15%" x2="90%" y2="90%">
+      <stop offset="0%" stop-color="#FFE252" />
+      <stop offset="55%" stop-color="#FFB300" />
+      <stop offset="100%" stop-color="#F08000" />
+    </linearGradient>
+    <linearGradient id="coverMocha" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#432818" />
+      <stop offset="100%" stop-color="#28160B" />
+    </linearGradient>
+    <mask id="cheeseMask1">
+      <rect width="512" height="512" fill="#FFFFFF" />
+
+      <circle cx="355" cy="204" r="34" fill="#000000" />
+
+      <circle cx="274" cy="258" r="26" fill="#000000" />
+      <circle cx="338" cy="308" r="17" fill="#000000" />
+      <circle cx="224" cy="314" r="13" fill="#000000" />
+    </mask>
+  </defs>
+
+
+  <rect width="512" height="512" rx="115" fill="url(#bgCream1)" />
+
+
+  <path d="M 140 360 L 293 150 A 260 260 0 0 1 400 360 Z" fill="url(#cheeseGold1)" mask="url(#cheeseMask1)" />
+
+
+  <path d="M 281 131 C 292 122 306 132 293 150 L 140 360 L 400 360 C 416 360 416 388 396 388 L 132 388 C 102 388 92 360 112 334 Z" fill="url(#coverMocha)" />
+</svg>

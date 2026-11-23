@@ -1,12 +1,9 @@
 export interface Project {
   id: string
   name: string
-  avatar?: string
+  icon: string
+  kind: string
   summary: string
-  updateServiceUrl?: string
-  qrCodeImage?: string
-  qrCodeLabel?: string
-  tags: string[]
   links: ProjectLink[]
 }
 

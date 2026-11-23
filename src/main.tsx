@@ -2,15 +2,8 @@ import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import './index.css'
-import { ThemeProvider } from '@/contexts/ThemeContext'
-import { ProjectProvider } from '@/contexts/ProjectContext'
-import { ProfileProvider } from '@/contexts/ProfileContext'
 import Layout from '@/components/layout/Layout'
-import ProjectLayout from '@/components/layout/ProjectLayout'
 import Home from '@/pages/Home'
-import PrivacyPolicy from '@/pages/PrivacyPolicy'
-import ProjectDetail from '@/pages/ProjectDetail'
-import TermsOfService from '@/pages/TermsOfService'
 import NotFound from '@/pages/NotFound'
 
 const router = createBrowserRouter([
@@ -22,52 +15,16 @@ const router = createBrowserRouter([
         index: true,
         element: <Home />,
       },
-    ],
-  },
-  {
-    path: 'privacy-policy',
-    element: <ProjectLayout />,
-    children: [
       {
-        index: true,
-        element: <PrivacyPolicy />,
+        path: '*',
+        element: <NotFound />,
       },
     ],
-  },
-  {
-    path: 'terms-of-service',
-    element: <ProjectLayout />,
-    children: [
-      {
-        index: true,
-        element: <TermsOfService />,
-      },
-    ],
-  },
-  {
-    path: ':projectId',
-    element: <ProjectLayout />,
-    children: [
-      {
-        index: true,
-        element: <ProjectDetail />,
-      },
-    ],
-  },
-  {
-    path: '*',
-    element: <NotFound />,
   },
 ])
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
-    <ThemeProvider>
-      <ProjectProvider>
-        <ProfileProvider>
-          <RouterProvider router={router} />
-        </ProfileProvider>
-      </ProjectProvider>
-    </ThemeProvider>
+    <RouterProvider router={router} />
   </StrictMode>,
 )
